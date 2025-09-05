@@ -1,0 +1,19 @@
+{
+  "name": "file-converter",
+  "version": "1.0.0",
+  "description": "Powerful Node.js API supporting 100+ file formats",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "multer": "^1.4.5-lts.1",
+    "file-type": "^18.0.0",
+    "libreoffice-convert": "^1.6.1",
+    "sharp": "^0.32.1",
+    "fluent-ffmpeg": "^2.1.2",
+    "uuid": "^9.0.0"
+  }
+}
+
