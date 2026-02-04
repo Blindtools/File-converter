@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: blind-ocr-api
+    env: python
+    buildCommand: |
+      apt-get update && apt-get install -y tesseract-ocr libtesseract-dev poppler-utils
+      pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: DATABASE_URL
+        value: sqlite:///./data/ocr_app.db
+      - key: ADMIN_USERNAME
+        sync: false
+      - key: ADMIN_PASSWORD
+        sync: false
+    disk:
+      name: ocr-data
+      mountPath: /home/ubuntu/ocr_api/data
+      sizeGB: 1
